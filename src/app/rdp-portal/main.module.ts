@@ -7,19 +7,21 @@ import { TopMenuComponent } from '../shared/top-menu/top-menu.component';
 import { BottomMenuComponent } from '../shared/bottom-menu/bottom-menu.component';
 import { HomeComponent } from './home/home.component';
 import { routes } from './main.routes';
+import { BillpaymentComponent } from './billpayment/billpayment.component';
 
 @NgModule({
-    declarations: [ 
+    declarations: [
         MainComponent,
         TopMenuComponent,
         BottomMenuComponent,
-        HomeComponent
+        HomeComponent,
+        BillpaymentComponent
     ],
-    imports: [ 
-        CommonModule,       
+    imports: [
+        CommonModule,
         RouterModule.forChild(routes)
-     ],
+    ],
     exports: [],
     providers: [],
 })
-export class MainModule {}
+export class MainModule { }
