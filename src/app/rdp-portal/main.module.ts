@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { routes } from './main.routes';
 import { BillpaymentComponent } from './billpayment/billpayment.component';
 import { ComparerrateComponent } from './comparerrate/comparerrate.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ComparerrateComponent } from './comparerrate/comparerrate.component';
         BottomMenuComponent,
         HomeComponent,
         BillpaymentComponent,
-        ComparerrateComponent
+        ComparerrateComponent,
+        DashboardComponent
     ],
     imports: [
         CommonModule,

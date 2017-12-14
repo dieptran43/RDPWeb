@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { HomeComponent } from './home/home.component';
 import { BillpaymentComponent } from './billpayment/billpayment.component';
 import { ComparerrateComponent } from './comparerrate/comparerrate.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -12,7 +13,7 @@ export const routes: Routes = [
             { path: 'index', component: HomeComponent },
             { path: 'billpayment', component: BillpaymentComponent },
             { path: 'comparerate', component: ComparerrateComponent },
-            // { path: 'dashboard', component: Name2Component },
+            { path: 'dashboard', component: DashboardComponent },
             // { path: 'pillpayment', component: Name2Component },
             // { path: 'recomend-plan', component: Name2Component },
             // { path: 'signup', component: Name2Component }
