@@ -7,6 +7,10 @@ import { ComparerrateComponent } from './comparerrate/comparerrate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ResSignup1Component } from './res-signup-1/res-signup-1.component';
 import { ResSignup2Component } from './res-signup-2/res-signup-2.component';
+import { SignupComponent } from './signup/signup.component';
+import { Signup1Component } from './signup-1/signup-1.component';
+import { Signup2Component } from './signup-2/signup-2.component';
+import { Signup3Component } from './signup-3/signup-3.component';
 
 export const routes: Routes = [
     {
@@ -20,7 +24,10 @@ export const routes: Routes = [
             { path: 'res-signup-2', component: ResSignup2Component },
             // { path: 'pillpayment', component: Name2Component },
             // { path: 'recomend-plan', component: Name2Component },
-            // { path: 'signup', component: Name2Component }
+            { path: 'signup', component: SignupComponent },
+            { path: 'signup-1', component: Signup1Component },
+            { path: 'signup-2', component: Signup2Component },
+            { path: 'signup-3', component: Signup3Component }
         ]
     }
 ];
