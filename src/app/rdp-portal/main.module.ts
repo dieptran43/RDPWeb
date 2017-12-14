@@ -10,6 +10,8 @@ import { routes } from './main.routes';
 import { BillpaymentComponent } from './billpayment/billpayment.component';
 import { ComparerrateComponent } from './comparerrate/comparerrate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ResSignup1Component } from './res-signup-1/res-signup-1.component';
+import { ResSignup2Component } from './res-signup-2/res-signup-2.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         HomeComponent,
         BillpaymentComponent,
         ComparerrateComponent,
-        DashboardComponent
+        DashboardComponent,
+        ResSignup1Component,
+        ResSignup2Component
     ],
     imports: [
         CommonModule,
