@@ -20,6 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
         "../src/assets/fonts/font-awesome.min.css",
         "../src/assets/fonts/ionicons.min.css",
         "../src/assets/css/KD_Header2.css",
