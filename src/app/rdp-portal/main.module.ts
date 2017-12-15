@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { Signup1Component } from './signup-1/signup-1.component';
 import { Signup2Component } from './signup-2/signup-2.component';
 import { Signup3Component } from './signup-3/signup-3.component';
+import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { Signup3Component } from './signup-3/signup-3.component';
         SignupComponent,
         Signup1Component,
         Signup2Component,
-        Signup3Component
+        Signup3Component,
+        RecomendPlanComponent
     ],
     imports: [
         CommonModule,

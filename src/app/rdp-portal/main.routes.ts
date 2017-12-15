@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { Signup1Component } from './signup-1/signup-1.component';
 import { Signup2Component } from './signup-2/signup-2.component';
 import { Signup3Component } from './signup-3/signup-3.component';
+import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
 
 export const routes: Routes = [
     {
@@ -22,8 +23,7 @@ export const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'res-signup-1', component: ResSignup1Component },
             { path: 'res-signup-2', component: ResSignup2Component },
-            // { path: 'pillpayment', component: Name2Component },
-            // { path: 'recomend-plan', component: Name2Component },
+            { path: 'recomend-plan', component: RecomendPlanComponent },
             { path: 'signup', component: SignupComponent },
             { path: 'signup-1', component: Signup1Component },
             { path: 'signup-2', component: Signup2Component },
