@@ -1,6 +1,8 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ChartsModule } from '@progress/kendo-angular-charts';
 
 import { MainComponent } from './main.component';
 import { TopMenuComponent } from '../shared/top-menu/top-menu.component';
@@ -17,6 +19,7 @@ import { Signup1Component } from './signup-1/signup-1.component';
 import { Signup2Component } from './signup-2/signup-2.component';
 import { Signup3Component } from './signup-3/signup-3.component';
 import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
+
 
 @NgModule({
     declarations: [
@@ -37,6 +40,7 @@ import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
     ],
     imports: [
         CommonModule,
+        ChartsModule,
         RouterModule.forChild(routes)
     ],
     exports: [],
