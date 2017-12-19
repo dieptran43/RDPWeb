@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row row-divided" style="margin:150px -15px;">
+    <div class="col-lg-4 col-md-5">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && login()">
+        <div class="form-group">
+          <input name="username" #username="ngModel" [(ngModel)]="model.username" class="form-control input-lg text-left" type="text"
+            required="" placeholder="NAME OR EMAIL" minlength="5">
+          <div class="alert alert-danger" *ngIf="f.submitted && !username.valid">
+            <div *ngIf="username.errors.required">Please enter username or email.</div>
+            <div *ngIf="username.errors.minlength">Please enter username or email minlength {{username.errors.minlength.requiredLength}}.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input name="password" #password="ngModel" [(ngModel)]="model.password" class="form-control input-lg text-left" type="text"
+            required="" placeholder="PASSWORD" minlength="3">
+          <div class="alert alert-danger" *ngIf="f.submitted && !password.valid">
+
+            <div *ngIf="password.errors.required">Please enter password.</div>
+            <div *ngIf="password.errors.minlength">Please enter password minlength {{password.errors.minlength.requiredLength}}</div>
+          </div>
+        </div>
+        <div>{{f.value | json}}</div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block btn-lg" type="submit">LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

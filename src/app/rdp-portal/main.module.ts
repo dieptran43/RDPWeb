@@ -1,7 +1,9 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
 import { MainComponent } from './main.component';
@@ -19,6 +21,8 @@ import { Signup1Component } from './signup-1/signup-1.component';
 import { Signup2Component } from './signup-2/signup-2.component';
 import { Signup3Component } from './signup-3/signup-3.component';
 import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
+import { SigninComponent } from './signin/signin.component';
+import { AuthenService } from '../core/services/authen.service';
 
 
 @NgModule({
@@ -36,14 +40,17 @@ import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
         Signup1Component,
         Signup2Component,
         Signup3Component,
-        RecomendPlanComponent
+        RecomendPlanComponent,
+        SigninComponent
     ],
     imports: [
         CommonModule,
+        HttpModule,
+        FormsModule,
         ChartsModule,
         RouterModule.forChild(routes)
     ],
     exports: [],
-    providers: [],
+    providers: [AuthenService],
 })
 export class MainModule { }

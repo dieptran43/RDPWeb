@@ -12,6 +12,7 @@ import { Signup1Component } from './signup-1/signup-1.component';
 import { Signup2Component } from './signup-2/signup-2.component';
 import { Signup3Component } from './signup-3/signup-3.component';
 import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
+import { SigninComponent } from './signin/signin.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +28,8 @@ export const routes: Routes = [
             { path: 'signup', component: SignupComponent },
             { path: 'signup-1', component: Signup1Component },
             { path: 'signup-2', component: Signup2Component },
-            { path: 'signup-3', component: Signup3Component }
+            { path: 'signup-3', component: Signup3Component },
+            { path: 'signin', component: SigninComponent}
         ]
     }
 ];
