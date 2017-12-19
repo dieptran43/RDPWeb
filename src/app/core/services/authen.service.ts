@@ -62,7 +62,7 @@ export class AuthenService {
           localStorage.removeItem(SystemConstants.CURRENT_USER);
           localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
           localStorage.removeItem('token');
-          localStorage.setItem('token',JSON.stringify(access_tokenStr.access_token));
+          localStorage.setItem('token',access_tokenStr.access_token);
         }
       });
   }
