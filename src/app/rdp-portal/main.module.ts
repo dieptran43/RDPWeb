@@ -23,6 +23,8 @@ import { Signup3Component } from './signup-3/signup-3.component';
 import { RecomendPlanComponent } from './recomend-plan/recomend-plan.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthenService } from '../core/services/authen.service';
+import { DataService } from '../core/services/data.service';
+import { UtilityService } from '../core/services/utility.service';
 
 
 @NgModule({
@@ -51,6 +53,6 @@ import { AuthenService } from '../core/services/authen.service';
         RouterModule.forChild(routes)
     ],
     exports: [],
-    providers: [AuthenService],
+    providers: [AuthenService, DataService, UtilityService],
 })
 export class MainModule { }

@@ -51,13 +51,18 @@ export class AuthenService {
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let user = response.json();
-        console.log(JSON.stringify(user));
-        if (user && user.data.access_token) {
+        //console.log(JSON.stringify(user));
+        let access_tokenStr =JSON.parse(user.data);
+        console.log(JSON.stringify(user.data));
+        console.log(JSON.stringify(access_tokenStr.access_token));
+        if (user && access_tokenStr) {
 
          // console.log(JSON.stringify(user));
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.removeItem(SystemConstants.CURRENT_USER);
           localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
+          localStorage.removeItem('token');
+          localStorage.setItem('token',JSON.stringify(access_tokenStr.access_token));
         }
       });
   }

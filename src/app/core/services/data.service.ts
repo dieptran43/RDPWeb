@@ -28,6 +28,18 @@ export class DataService {
             .map(this.extractData);
     }
 
+    get2(uri: string) {
+        //console.log(localStorage.getItem('token'))
+        this.headers.delete('Authorization');
+        let a = localStorage.getItem('token');
+        console.log(a);
+        this.headers.append("Authorization", "Bearer " + a);
+        console.log(uri)
+        console.log( this.headers)
+        return this.http.get("http://occapp.ddns.net:9696/resx/api/values", { headers: this.headers })
+            .map(this.extractData);
+    }
+
     post(uri: string, data?: any) {
         this.headers.delete('Authorization');
         this.headers.append("Authorization", "Bearer " + this.authenService.getLoggedInUser().access_token);
