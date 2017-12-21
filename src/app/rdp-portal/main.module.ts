@@ -25,6 +25,8 @@ import { SigninComponent } from './signin/signin.component';
 import { AuthenService } from '../core/services/authen.service';
 import { DataService } from '../core/services/data.service';
 import { UtilityService } from '../core/services/utility.service';
+import { AuthService } from '../core/services/cuppaOAuth/auth.service';
+import { CuppaOAuthModule } from '../core/services/cuppaOAuth/cuppaOAuth.module';
 
 
 @NgModule({
@@ -50,9 +52,10 @@ import { UtilityService } from '../core/services/utility.service';
         HttpModule,
         FormsModule,
         ChartsModule,
+        CuppaOAuthModule,
         RouterModule.forChild(routes)
     ],
-    exports: [],
-    providers: [AuthenService, DataService, UtilityService],
+    exports: [RouterModule],
+    providers: [AuthenService, DataService, UtilityService, AuthService],
 })
 export class MainModule { }

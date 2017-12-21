@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenService } from '../../core/services/authen.service';
 import { UrlConstants } from '../../core/common/url.constants';
 import { DataService } from '../../core/services/data.service';
+import { ConfigConstants } from '../../core/common/config.constants';
 
 @Component({
   selector: 'app-signin',
@@ -12,6 +13,8 @@ import { DataService } from '../../core/services/data.service';
 export class SigninComponent implements OnInit {
 
   model: any = {};
+  config = ConfigConstants.config;
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
