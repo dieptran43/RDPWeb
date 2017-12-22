@@ -26,6 +26,24 @@ import { AuthenService } from '../core/services/authen.service';
 import { DataService } from '../core/services/data.service';
 import { UtilityService } from '../core/services/utility.service';
 
+import { SocialLoginModule } from '../core/providers/sociallogin.module';
+import { AuthServiceConfig } from '../core/services/auth-social.service';
+import { GoogleLoginProvider } from '../core/providers/google-login-provider';
+import { FacebookLoginProvider } from '../core/providers/facebook-login-provider';
+
+let config = new AuthServiceConfig([
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider("788182042675-8oscd7mlum1v9tord28ov2bap5qr4o9m.apps.googleusercontent.com")
+    },
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider("128230904509295")
+    }
+  ]);
+  export function provideConfig() {
+    return config;
+  }
 
 @NgModule({
     declarations: [
@@ -50,9 +68,13 @@ import { UtilityService } from '../core/services/utility.service';
         HttpModule,
         FormsModule,
         ChartsModule,
+        SocialLoginModule,
         RouterModule.forChild(routes)
     ],
     exports: [],
-    providers: [AuthenService, DataService, UtilityService],
+    providers: [AuthenService, DataService, UtilityService, {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }],
 })
 export class MainModule { }
