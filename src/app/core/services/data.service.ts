@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
@@ -8,6 +8,10 @@ import { SystemConstants } from './../common/system.constants';
 import { MessageContstants } from './../common/message.constants';
 import { UtilityService } from './utility.service';
 import { ReplaySubject } from 'rxjs';
+import { InterceptorService } from 'ng2-interceptors/lib/interceptor-service';
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class DataService {
@@ -16,7 +20,9 @@ export class DataService {
         public http: Http,
         private route: Router,
         public authenService: AuthenService,
-        private utilityService: UtilityService) {
+        private utilityService: UtilityService,
+        private _httpInterceptorService: InterceptorService
+    ) {
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
     }
@@ -35,7 +41,7 @@ export class DataService {
         console.log(a);
         this.headers.append("Authorization", "Bearer " + a);
         console.log(uri)
-        console.log( this.headers)
+        console.log(this.headers)
         return this.http.get("http://occapp.ddns.net:9696/resx/api/values", { headers: this.headers })
             .map(this.extractData);
     }
@@ -77,6 +83,22 @@ export class DataService {
         return this.http.post(SystemConstants.BASE_API + uri, data, { headers: newHeader })
             .map(this.extractData);
     }
+
+    //#region  --Get Data app/profile
+    //private commentsUrl = 'https://cuppa-angular2-oauth.herokuapp.com/api/profile'; 
+    private commentsUrl = SystemConstants.AUTH_BASE_URL + '/api/profile';
+
+    getProfile(): Observable<any> {
+        // ...using get request
+        return this._httpInterceptorService.get(this.commentsUrl)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json())
+            //...errors if any
+            .catch((error: any) => Observable.throw(error || 'Server error'));
+
+    }
+    //#endregion
+
     private extractData(res: Response) {
         let body = res.json();
         return body || {};
@@ -94,7 +116,7 @@ export class DataService {
         }
         else {
             let errMsg = JSON.parse(error._body).Message;
-           //this.notificationService.printErrorMessage(errMsg);
+            //this.notificationService.printErrorMessage(errMsg);
 
             return Observable.throw(errMsg);
         }

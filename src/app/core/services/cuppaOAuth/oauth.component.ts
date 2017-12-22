@@ -24,12 +24,30 @@ export class cuppaOAuth {
   @Input()
   authConfig: any;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService,
+    private route: ActivatedRoute
+  ) {
   }
   facebookLogin() {
+    this.removeSocialStorage();
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || window.location.href;
+    localStorage.setItem('returnUrlSocial', returnUrl as string);
+
     this.authService.auth('facebook', this.authConfig);
   }
   googleLogin() {
+    this.removeSocialStorage();
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || window.location.href;
+    localStorage.setItem('returnUrlSocial', returnUrl as string);
+
     this.authService.auth('google', this.authConfig);
+  }
+
+  private removeSocialStorage() {
+    localStorage.removeItem('returnUrlSocial');
+    localStorage.setItem('isLoggedIn', "false");
+    localStorage.removeItem('token');
+    localStorage.removeItem('cachedurl');
+    localStorage.removeItem('provider');
   }
 }
