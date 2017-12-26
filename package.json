@@ -2,9 +2,9 @@
   "name": "rdpweb",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "start": "node server.js",
-    "start2": "ng serve",
+  "scripts": {    
+    "start": "ng serve",
+    "start2": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
