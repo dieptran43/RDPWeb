@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 col-md-12">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" #addSignup2="ngForm" (ngSubmit)="saveSignup2(addSignup2.valid)" >
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Basic Information</h3>
@@ -25,18 +25,21 @@
                         <div class="col-sm-9">
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Name *</label>
+                                    <label class="control-label" for="companyname">Name *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="salutation">
+                                    <input class="form-control" type="text" name="companyname" #companyname="ngModel" [(ngModel)]="entity.CompanyName" required minlength="3">
+                                    <small class="text-danger" [hidden]="companyname.valid || (companyname.pristine && !addSignup2.submitted)">Company Name is required.</small>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Segment *</label>
+                                    <label class="control-label" for="segment">Segment *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="salutation">
+                                    <input class="form-control" type="text" name="segment" #segment="ngModel"
+                                    [(ngModel)]="entity.Segment" required>
+                                    <small class="text-danger" [hidden]="segment.valid || (segment.pristine && !addSignup2.submitted)">Segment is required.</small>
                                 </div>
                             </div>
                         </div>
@@ -51,12 +54,13 @@
                                     <label class="control-label" for="salutation">Salutation *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <select class="form-control" name="salutation">
+                                    <select class="form-control" name="salutation" #salutation="ngModel" [(ngModel)]="entity.Salutation" required>
                                         <option value="" selected="">Please select</option>
                                         <option value="MR">Mr</option>
                                         <option value="MRS">Mrs</option>
                                         <option value="MS">Miss</option>
                                     </select>
+                                    <small class="text-danger" [hidden]="salutation.valid || (salutation.pristine && !addSignup2.submitted)">Salutation is required.</small>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -64,7 +68,8 @@
                                     <label class="control-label" for="firstname">First Name *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="firstname" maxlength="5">
+                                    <input class="form-control" type="text" name="firstname" #firstname="ngModel" [(ngModel)]="entity.FirstName" required>
+                                    <small class="text-danger" [hidden]="firstname.valid || (firstname.pristine && !addSignup2.submitted)">First Name is required.</small>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -72,7 +77,8 @@
                                     <label class="control-label" for="lastname">Last Name *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="lastname">
+                                    <input class="form-control" type="text" name="lastname" #lastname="ngModel" [(ngModel)]="entity.LastName" required>
+                                    <small class="text-danger" [hidden]="lastname.valid || (lastname.pristine && !addSignup2.submitted)">Last Name is required.</small>
                                 </div>
                             </div>
                         </div>
@@ -95,26 +101,29 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Address 1 (Blk / Street) *</label>
+                                    <label class="control-label" for="address1">Address 1 (Blk / Street) *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="salutation">
+                                    <input class="form-control" type="text" name="address1" #address1="ngModel" [(ngModel)]="entity.Address1" required>
+                                    <small class="text-danger" [hidden]="address1.valid || (address1.pristine && !addSignup2.submitted)">Address 1 is required.</small>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Address 2 (Unit No. / Bldg) *</label>
+                                    <label class="control-label" for="address2">Address 2 (Unit No. / Bldg) *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="salutation">
+                                    <input class="form-control" type="text" name="address2" #address2="ngModel" [(ngModel)]="entity.Address2" required>
+                                    <small class="text-danger" [hidden]="address2.valid || (address2.pristine && !addSignup2.submitted)">Address 2 is required.</small>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Postal Code *</label>
+                                    <label class="control-label" for="postalcode">Postal Code *</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="salutation">
+                                    <input class="form-control" type="text" name="postalcode" #postalcode="ngModel" [(ngModel)]="entity.PostalCode">
+                                    <small class="text-danger" [hidden]="postalcode.valid || (postalcode.pristine && !addSignup2.submitted)">Postal Code is required.</small>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +135,10 @@
                         <div class="col-sm-9">
                             <div class="form-group">
                                 <div class="col-sm-4">
-                                    <label class="control-label" for="salutation">Account Number (if applicable)</label>
+                                    <label class="control-label" for="accountnumber">Account Number (if applicable)</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control text-left" type="text" name="salutation" placeholder="Format: 90xxxxxxxxx or 93xxxxxxxxx">
+                                    <input class="form-control text-left" type="text" name="accountnumber" #accountnumber="ngModel" [(ngModel)]="entity.AccountNumber" placeholder="Format: 90xxxxxxxxx or 93xxxxxxxxx">
                                 </div>
                                 <div class="col-sm-8 col-sm-offset-4">
                                     <a href="#" style="padding:10px;">View Sample</a>
@@ -137,13 +146,14 @@
                             </div>
                         </div>
                     </div>
+                    <button class="btn btn-primary btn-lg" type="submit" style="margin:0 5px;">Next </button>
                 </form>
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-12" style="padding:15px;">
                 <a class="btn btn-default btn-lg" role="button" routerLink="/signup-1" style="margin:0 5px;">Back </a>
-                <a class="btn btn-primary btn-lg" role="button" routerLink="/signup-3" style="margin:0 5px;">Next </a>
+                <a class="btn btn-primary btn-lg" role="button" style="margin:0 5px;">Next </a>
             </div>
         </div>
     </div>

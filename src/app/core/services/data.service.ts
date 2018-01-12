@@ -12,6 +12,7 @@ import { ReplaySubject } from 'rxjs';
 @Injectable()
 export class DataService {
     private headers: Headers;
+    entitySignUp: any;
     constructor(
         public http: Http,
         private route: Router,

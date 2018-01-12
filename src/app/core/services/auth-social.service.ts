@@ -55,7 +55,7 @@ export class AuthSocialService {
                 providerObject.signIn().then((user: SocialUser) => {
                     user.provider = providerId;
                     resolve(user);
-
+                    console.log(user)
                     this._user = user;
                     this._authState.next(user);
                 });
