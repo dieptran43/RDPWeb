@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDirective, TooltipModule } from 'ngx-bootstrap';
 
 @Component({
     selector: 'app-home',
