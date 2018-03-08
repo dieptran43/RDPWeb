@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Signup2Component } from '../signup-2/signup-2.component';
-import { DataService } from '../../core/services/data.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-signup-3',
@@ -9,13 +7,9 @@ import { DataService } from '../../core/services/data.service';
 })
 export class Signup3Component implements OnInit {
 
-  constructor(private _dataService: DataService) { 
-
-  }
+  constructor() { }
 
   ngOnInit() {
-    console.log(this._dataService.entitySignUp);
-    console.log(sessionStorage.getItem("dataSignUp2"))
   }
 
 }

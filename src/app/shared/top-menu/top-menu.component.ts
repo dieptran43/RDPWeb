@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
     selector: 'app-top-menu',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./top-menu.component.css']
 })
 export class TopMenuComponent implements OnInit {
-    constructor() { }
+    constructor(private rou: Router) { }
 
     ngOnInit() { }
+
+    public redirectLink() {
+        window.location.href = "https://www.reddotpower.com.sg";
+    }
 }
