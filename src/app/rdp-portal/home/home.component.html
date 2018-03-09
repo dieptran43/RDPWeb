@@ -15,6 +15,7 @@
             <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
             <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
             <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="3"></li>
         </ol>
 
         <!-- Wrapper For Slides -->
@@ -55,18 +56,32 @@
                     <a href="#plans" class="btn btn-primary" data-animation="animated fadeInDown">Find Out More</a>
                 </div>
             </div>
-            <!-- End of Slide -->
 
-            <!-- Third Slide -->
             <div class="item">
 
                 <!-- Slide Background -->
                 <img src="../assets/img/Slider3.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
                 <div class="bs-slider-overlay"></div>
                 <!-- Slide Text Layer -->
-                <div class="slide-text slide_style_right">
+                <div class="slide-text slide_style_center">
                     <h1 data-animation="animated zoomInLeft">eFIX</h1>
-                    <p data-animation="animated fadeInRight">eFIX</p>
+                    <p data-animation="animated fadeInRight">Budgeting made easy. Pay a fixed rate every month.</p>
+                    <a href="#" class="btn btn-default" data-animation="animated fadeInLeft">Best Plan For Me</a>
+                    <a href="#plans" class="btn btn-primary" data-animation="animated fadeInRight">Find Out More</a>
+                </div>
+            </div>
+            <!-- End of Slide -->
+
+            <!-- Third Slide -->
+            <div class="item">
+
+                <!-- Slide Background -->
+                <img src="../assets/img/Slider4.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_right">
+                    <h1 data-animation="animated zoomInLeft">eQ+</h1>
+                    <p data-animation="animated fadeInRight">Save according to your usage patterns</p>
                     <a href="#" class="btn btn-default" data-animation="animated fadeInLeft">Best Plan For Me</a>
                     <a href="#plans" class="btn btn-primary" data-animation="animated fadeInRight">Find Out More</a>
                 </div>
@@ -338,19 +353,19 @@
                         <li>Q3 </li>
                     </ul>
                 </div>
-                <h5 style="margin-top:30px;">Q2: What are the hours of the majority of people being home? </h5>
+                <h5 style="margin-top:30px;">Q1: When are most of your family members home?</h5>
                 <div style="margin-top:5px;">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">Evenings & Weekends</label>
+                                    <input type="radio" name="rdmodel1">Evenings & Weekends</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">All through th Day</label>
+                                    <input type="radio" name="rdmodel1">All through th Day</label>
                             </div>
                         </div>
                     </div>
@@ -379,19 +394,19 @@
                         <li>Q3 </li>
                     </ul>
                 </div>
-                <h5 style="margin-top:30px;">Q2: Do you like saving money and prefer the safe option? </h5>
+                <h5 style="margin-top:30px;">Q2: Do you want to save money and prefer a safe option?</h5>
                 <div style="margin-top:5px;">
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">Yes</label>
+                                    <input type="radio" name="rdmodel2">Yes</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">No</label>
+                                    <input type="radio" name="rdmodel2">No</label>
                             </div>
                         </div>
                     </div>
@@ -421,19 +436,19 @@
                         <li class="active">Q3 </li>
                     </ul>
                 </div>
-                <h5 style="margin-top:30px;">Q2: Do you like saving money and prefer a fixed price? </h5>
+                <h5 style="margin-top:30px;">Q3: Do you like saving money and prefer a fixed price? </h5>
                 <div style="margin-top:5px;">
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">Yes</label>
+                                    <input type="radio" name="rdmodel3">Yes</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio">No</label>
+                                    <input type="radio" name="rdmodel3">No</label>
                             </div>
                         </div>
                     </div>
@@ -441,7 +456,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" (click)="RecommendModal3.hide();RecommendModal2.show()">Back </button>
-                <button class="btn btn-primary" type="button">Sumit </button>
+                <button class="btn btn-primary" type="button">Submit </button>
             </div>
         </div>
     </div>
