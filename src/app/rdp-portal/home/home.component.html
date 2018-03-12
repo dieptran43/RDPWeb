@@ -122,16 +122,18 @@
             <div class="row" id="plans">
                 <div class="col-md-12" style="padding:15px 15px;">
                     <button class="btn btn-primary" type="button" (click)="RecommendModal1.show()">Help me recommend</button>
-                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#getUsageModal">Find out how much you can save</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" (click)="FindOutSavingModal.show()">Find out how much you can save</button>
                 </div>
                 <div class="clearfix"></div>
-                <div class="col-md-4 col-sm-6 plan price default wow fadeInDown">
+                <div class="col-md-4 col-sm-6 plan price wow fadeInDown" [ngClass]="flagPCSavingESave ? 'red': 'default'">
                     <ul class="list-group">
                         <li class="list-group-item heading">
                             <h1>eSAVE </h1>
                         </li>
-                        <li class="list-group-item show-saving">
-                            <span class="label label-secondary" style="font-size:16px;">Save $1,218.00 annually (20%) *</span>
+                        <li *ngIf="vmESAVE && vmESAVE?.saving" class="list-group-item show-saving">
+                            <span class="label label-secondary" style="font-size:16px;">Save ${{vmESAVE.saving | number : '0.3'}} annually ({{vmESAVE.percentSaving | number : '0.4'}}%)
+                                *
+                            </span>
                         </li>
                         <li class="list-group-item">
                             <span>20% Discount</span>
@@ -144,14 +146,19 @@
                             <a routerLink="/signup-1" class="btn">Register </a>
                         </li>
                     </ul>
+                    <div *ngIf="flagPCSavingESave">
+                        <img src="assets/img/ribon_one.png">
+                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 plan price default wow fadeInDown">
+                <div class="col-md-4 col-sm-6 plan price wow fadeInDown" [ngClass]="flagPCSavingEFix ? 'red': 'default' ">
                     <ul class="list-group">
                         <li class="list-group-item heading">
                             <h1>eFIX </h1>
                         </li>
-                        <li class="list-group-item show-saving">
-                            <span class="label label-secondary" style="font-size:16px;">Save $1,041.00 annually (17%) *</span>
+                        <li *ngIf="vmEFIX && vmEFIX?.saving" class="list-group-item show-saving">
+                            <span class="label label-secondary" style="font-size:16px;">Save ${{vmEFIX.saving | number : '0.3'}} annually ({{vmEFIX.percentSaving | number : '0.4'}}%)
+                                *
+                            </span>
                         </li>
                         <li class="list-group-item">
                             <span>0.1683 per kWh</span>
@@ -165,14 +172,19 @@
                             <a routerLink="/signup-1" class="btn">Register </a>
                         </li>
                     </ul>
+                    <div *ngIf="flagPCSavingEFix">
+                        <img src="assets/img/ribon_one.png">
+                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 plan price red wow fadeInDown">
+                <div class="col-md-4 col-sm-6 plan price wow fadeInDown" [ngClass]="flagPCSavingEQPlus ? 'red': 'default' ">
                     <ul class="list-group">
                         <li class="list-group-item heading">
                             <h1>eQ </h1>
                         </li>
-                        <li class="list-group-item show-saving">
-                            <span class="label label-secondary" style="font-size:16px;">Save $1,365.00 annually (22%) *</span>
+                        <li *ngIf="vmEQPlus && vmEQPlus?.saving" class="list-group-item show-saving">
+                            <span class="label label-secondary" style="font-size:16px;">Save ${{vmEQPlus.saving | number : '0.3'}} annually ({{vmEQPlus.percentSaving | number : '0.4'}}%)
+                                *
+                            </span>
                         </li>
                         <li class="list-group-item">
                             <span>0.17 per kWh (peak)</span>
@@ -187,7 +199,10 @@
                             <a routerLink="/signup-1" class="btn">Register </a>
                         </li>
                     </ul>
-                    <img src="assets/img/ribon_one.png">
+                    <div *ngIf="flagPCSavingEQPlus">
+                        <img src="assets/img/ribon_one.png">
+                    </div>
+
                 </div>
                 <div class="col-md-12">
                     <div class="well show-saving text-left">
@@ -458,6 +473,69 @@
                 <button class="btn btn-primary" type="button" (click)="RecommendModal3.hide();RecommendModal2.show()">Back </button>
                 <button class="btn btn-primary" type="button">Submit </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" bsModal #FindOutSavingModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Find out saving</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="FindOutSavingModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form name="FindOutSavingForm" #FindOutSavingForm="ngForm" (ngSubmit)="CalculateClicked(FindOutSavingForm)" *ngIf="entity">
+                <div class="modal-body">
+                    <p>Please enter your past 3 months usage (kWh), to find out how much you can save:</p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" style="padding:5px 0;">Usage 1: </label>
+                        </div>
+                        <div class="col-md-4">
+                            <input name="usage1" #usage1="ngModel" [(ngModel)]="entity.usage1" required type="number" class="text-left form-control">
+                        </div>
+                        <div class="col-md-5">
+                            <span [hidden]="usage1.valid || (usage1.pristine && !FindOutSavingForm.submitted)" style="margin-left: 15px;" class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                                data-for="amount" data-valmsg-for="amount" id="usage1_validationMessage" role="alert">
+                                <span class="fa fa-exclamation-triangle"> </span> Required!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" style="padding:5px 0;">Usage 2: </label>
+                        </div>
+                        <div class="col-md-4">
+                            <input name="usage2" #usage2="ngModel" [(ngModel)]="entity.usage2" required type="number" class="text-left form-control">
+                        </div>
+                        <div class="col-md-5">
+                            <span [hidden]="usage2.valid || (usage2.pristine && !FindOutSavingForm.submitted)" style="margin-left: 15px;" class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                                data-for="amount" data-valmsg-for="amount" id="usage2_validationMessage" role="alert">
+                                <span class="fa fa-exclamation-triangle"> </span> Required!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" style="padding:5px 0;">Usage 3: </label>
+                        </div>
+                        <div class="col-md-4">
+                            <input name="usage3" #usage3="ngModel" [(ngModel)]="entity.usage3" required type="number" class="text-left form-control">
+                        </div>
+                        <div class="col-md-5">
+                            <span [hidden]="usage3.valid || (usage3.pristine && !FindOutSavingForm.submitted)" style="margin-left: 15px;" class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                                data-for="amount" data-valmsg-for="amount" id="usage3_validationMessage" role="alert">
+                                <span class="fa fa-exclamation-triangle"> </span> Required!</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal" (click)="FindOutSavingModal.hide()">Close</button>
+                    <button class="btn btn-primary" type="submit">Calculate</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
