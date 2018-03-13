@@ -1,34 +1,3 @@
-<div>
-  <nav class="navbar navbar-default navbar-fixed-top navigation-clean-button">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="index.html" style="width:auto;padding:0;margin:0 10px 0 -1px;">
-          <img src="assets/img/logo.png" style="width:auto;height:100%;margin:0;">
-        </a>
-        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navcol-1">
-        <ul class="nav navbar-nav">
-          <li class="active" role="presentation">
-            <a href="#">For Residential</a>
-          </li>
-          <li role="presentation">
-            <a href="#">For Business</a>
-          </li>
-        </ul>
-        <p class="navbar-text navbar-right actions">
-          <a class="navbar-link login" routerLink="/dashboard">Log In</a>
-          <a class="btn btn-default action-button" role="button" routerLink="/signup">Register </a>
-        </p>
-      </div>
-    </div>
-  </nav>
-</div>
 <section style="margin-top:71px;">
   <div class="container">
     <div class="page-header">
@@ -81,7 +50,7 @@
           </div>
           <div class="row">
             <div class="col-sm-3">
-              <p>Service Address</p>
+              <p>Premise Information</p>
             </div>
             <div class="col-sm-9">
               <div class="form-group">
@@ -119,6 +88,32 @@
                   <input class="form-control" type="text" name="salutation">
                 </div>
               </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="residentialType">Residential Type *</label>
+                </div>
+                <div class="col-sm-8">
+                  <select class="form-control">
+                    <option value="">Please select</option>
+                    <option value="HDB-1rm" selected="true">HDB-1rm</option>
+                    <option value="HDB-2rm">HDB-2rm</option>
+                    <option value="HDB-3rm">HDB-3rm</option>
+                    <option value="HDB-4rm">HDB-4rm</option>
+                    <option value="HDB-5rm">HDB-5rm</option>
+                    <option value="Exec">Exec</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Landed">Landed</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="accountNumber">Account Number *</label>
+                </div>
+                <div class="col-sm-8">
+                  <input class="form-control" type="text" name="accountNumber">
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -128,7 +123,7 @@
             <div class="col-sm-9">
               <div class="form-group">
                 <div class="col-sm-4">
-                  <label class="control-label" for="salutation">Plan *</label>
+                  <label class="control-label" for="">Plan *</label>
                 </div>
                 <div class="col-sm-8">
                   <select class="form-control">
@@ -141,7 +136,7 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-4">
-                  <label class="control-label" for="salutation">Duration</label>
+                  <label class="control-label" for="">Duration *</label>
                 </div>
                 <div class="col-sm-8">
                   <select class="form-control">
@@ -165,6 +160,82 @@
                 </div>
                 <div class="col-sm-8">
                   <input class="form-control" type="text">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="">Self Read / Non-Self Read *</label>
+                </div>
+                <div class="col-sm-8">
+                    <select class="form-control">
+                        <option value="">Please select</option>
+                        <option value="Yes" selected="">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="">Registration Date *</label>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="">Preferred Date of Supply *</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="">Contract End Date</label>
+                </div>
+                <div class="col-sm-8">
+                  Preferred Date of Supply + Duration
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="accountNumber">Existing Meter Type *</label>
+                </div>
+                <div class="col-sm-8">
+                    <select class="form-control">
+                        <option value="">Please select</option>
+                        <option value="AMI" selected="">AMI</option>
+                        <option value="Cumulative">Cumulative</option>
+                        <option value="SRLP">SRLP</option>
+                      </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label class="control-label" for="requestforMeterChange">Request for Meter Change</label>
+                </div>
+                <div class="col-sm-8">
+                  <input class="control-label cs-checkbox" type="checkbox" name="requestforMeterChange" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                  <label>
+                    <input class="cs-checkbox" type="checkbox" name="thefactsheet"> I agree to the fact sheet </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                  <label>
+                    <input class="cs-checkbox" type="checkbox" name="termsAndConditions"> I agree to the terms & conditions </label>
                 </div>
               </div>
             </div>

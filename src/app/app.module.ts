@@ -31,7 +31,7 @@ import { AuthServiceConfig } from './core/services/auth-social.service';
 import { GoogleLoginProvider } from './core/providers/google-login-provider';
 import { FacebookLoginProvider } from './core/providers/facebook-login-provider';
 import 'hammerjs';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule, BsDatepickerModule  } from 'ngx-bootstrap';
 
 let config = new AuthServiceConfig([
   {
@@ -75,6 +75,7 @@ export function provideConfig() {
     SocialLoginModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthenService,

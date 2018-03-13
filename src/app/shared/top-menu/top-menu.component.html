@@ -15,16 +15,14 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li role="presentation">
-                        <a routerLink="/res-signup-1">For Residential</a>
+                        <a routerLink="/res-signup-1">For Residential Registration</a>
                     </li>
                     <li class="active" role="presentation">
-                        <a routerLink="/index">For Business</a>
+                        <a routerLink="/index">For Business Registration</a>
                     </li>
                 </ul>
-                <p class="navbar-text navbar-right actions">
-                    <a class="navbar-link login" routerLink="/dashboard">Check Application Status</a>
-                    <button class="btn btn-default action-button" type="button" data-toggle="modal" data-target="#promptSPForm">Register </button>
-                    <button class="btn btn-default action-button" type="button" (click)="redirectLink()">Corporate Site </button>
+                <p class="navbar-text navbar-right actions" style="padding-top: 10px;">
+                    <a class="navbar-link login" routerLink="/dashboard">Check Application Status</a> | <a class="navbar-link login" (click)="redirectLink()">Corporate Site</a>
                 </p>
             </div>
         </div>

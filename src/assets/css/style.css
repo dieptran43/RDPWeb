@@ -106,3 +106,9 @@ span {
   vertical-align: baseline;
 }
 
+/**Width, Height checkbox**/
+.cs-checkbox{
+  width: 18px;
+  height: 15px;
+}
+
