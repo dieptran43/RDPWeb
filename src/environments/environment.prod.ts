@@ -3,6 +3,6 @@ export const environment = {
 };
 
 export const config = {
-    apiUrl: '/',
-    imgUrl: '/assets/img'
+        apiUrl: 'https://rdp-dev.herokuapp.com',
+    imgUrl: 'https://rdp-dev.herokuapp.com/assets/img'
 }
