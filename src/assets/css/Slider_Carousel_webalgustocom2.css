@@ -110,19 +110,19 @@
 }
 
 .indicators-line > .carousel-indicators {
-  right:45%;
-  bottom:3%;
-  left:auto;
-  width:90%;
-  height:20px;
-  font-size:0;
-  overflow-x:auto;
-  text-align:right;
-  overflow-y:hidden;
-  padding-left:10px;
-  padding-right:10px;
-  padding-top:1px;
-  white-space:nowrap;
+  /*right: 45%;
+    left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;*/
+    height: 20px;
+    font-size: 0;
+    overflow-x: auto;
+    text-align: center;
+    overflow-y: hidden;
+    padding-top: 1px;
+    white-space: nowrap;
+    bottom: 3%;
 }
 
 .indicators-line > .carousel-indicators li {
@@ -195,7 +195,7 @@
 
 .slide-text {
   left:0;
-  top:25%;
+  top:40%;
   right:0;
   margin:auto;
   padding:10px;
@@ -272,7 +272,7 @@
 
 .slide-text > a:hover, .slide-text > a:active {
   color:#ffffff;
-  background:#222222;
+  background:#ffffff;
   -webkit-transition:background 0.5s ease-in-out, color 0.5s ease-in-out;
   transition:background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
