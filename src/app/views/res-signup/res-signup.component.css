@@ -1,0 +1,115 @@
+a.cs-a-text {
+    text-decoration: underline;
+}
+
+a:active,
+a:hover {
+    color: #337ab7;
+    font-size: bold;
+}
+
+
+/*poup*/
+
+.cs-head-large {
+    background-color: #595959;
+    color: white;
+}
+
+td {
+    padding: 1px 10px 1px 10px;
+}
+
+.cs-td-left {
+    background-color: #D9D9D9;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width60 {
+    width: 60%;
+}
+
+p {
+    margin: 1px;
+}
+
+
+/*Ng*/
+
+.header {
+    background-color: #404040;
+    color: white;
+}
+
+.border-left {
+    border-left: white;
+}
+
+.border-right {
+    border-right: white;
+}
+
+.border-top {
+    border-top: white;
+}
+
+.border-bottom {
+    border-bottom: white;
+}
+
+.grey {
+    color: #808080
+}
+
+footer {
+    padding-top: 5%;
+    font-size: 13px;
+}
+
+header {
+    font-weight: 600;
+}
+
+label {
+    color: #4e4e4e !important;
+}
+
+.div-border {
+    border: 1px solid black;
+    width: 315%;
+    padding: 4px;
+    box-shadow: 3px 3px 3px #666;
+    margin-top: 5px;
+    background-color: white;
+}
+
+.tooltip-inner {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: none;
+    width: 200px;
+    max-width: 500px !important;
+    text-align: left;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .tooltip {
+        position: initial !important;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .div-border {
+        width: 176%;
+        margin-bottom: 5px;
+    }
+    .img-width {
+        width: 180% !important;
+    }
+}

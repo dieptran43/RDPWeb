@@ -1,0 +1,23 @@
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.highlight-header {
+    color: #1f9cde !important;
+    border-bottom-color: #1f9cde !important;
+    text-decoration: none;
+    margin: 0 0 0 1px;
+    line-height: normal;
+    border: none;
+    border-bottom: solid 5px #1f9cde;
+}
+
+.cs-logo {
+    width: 279px !important;
+    height: 68px !important;
+    margin: -12px 0 0 -1px;
+}
+
+.navbar-toggle {
+    margin-right: 6px !important;
+    padding: 10px 5px 10px 7px;
+}
